@@ -75,7 +75,7 @@ Therefore, makes sense keep the Dijkstra’s Shortest Path Algorithm on the data
 
 ### Direction matters!!
 
-The problem don't specify if direction matters, so for simplicity, I decided that direction matters, therefore A->B doesn't mean B->A.
+For simplicity, I decided that direction matters, therefore A->B doesn't mean B->A.
 It's possible address this issue by changing the way we store the friend relation, always storing bi-directional on friendship controller.
 
 Example
