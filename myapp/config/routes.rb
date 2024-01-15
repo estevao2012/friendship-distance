@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :friendships, except: [:edit, :update, :index, :show] do
+    collection do
+      get 'degree'
+    end
+  end
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

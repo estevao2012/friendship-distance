@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_15_134231) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_15_145112) do
+  create_table "friendships", force: :cascade do |t|
+    t.integer "user_source_id", null: false
+    t.integer "user_destine_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_source_id", "user_destine_id"], name: "index_friendships_on_user_source_id_and_user_destine_id", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.text "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "friendships", "users", column: "user_destine_id"
+  add_foreign_key "friendships", "users", column: "user_source_id"
 end
